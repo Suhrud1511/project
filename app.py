@@ -23,3 +23,6 @@ def predict_api():
     output=regmodel.predict(new_data)
     print(output[0])
     return jsonify(output[0])
+
+if __name__=="__main__":
+    app.run(debug=True)
