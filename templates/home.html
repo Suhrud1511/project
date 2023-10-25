@@ -1,115 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      text-align: center;
-    }
-
-    .input-box {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .input-box:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
-    }
-
-    .btn-primary {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 15px 30px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn-primary:hover {
-      background-color: #0056b3;
-    }
-
-    .result {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #28a745;
-    }
-  </style>
-</head>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>California Housing Price Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-  <div class="container">
-      <h1>California Housing Price Prediction</h1>
-      <form action="/predict" method="POST">
-          <label for="input1">Feature 1:</label>
-          <input type="text" id="input1" name="input1" required><br>
+<body class="bg-gray-100">
+  <div class="container mx-auto mt-16 p-8 bg-white rounded-lg shadow-lg max-w-md">
 
-          <label for="input2">Feature 2:</label>
-          <input type="text" id="input2" name="input2" required><br>
-
-          <!-- Add more input fields as needed -->
-
-          <label for="model">Select Model:</label>
-          <select id="model" name="model" required>
-              <option value="linear">Linear Regression</option>
-              <option value="xgboost">XGBoost</option>
-          </select><br>
-
-          <button type="submit">Predict</button>
-      </form>
-<body>
-  <div class="container">
-    <h1>California House Price Prediction</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">California House Price Prediction</h1>
 
     <!-- Main Input Form -->
-    <form action="{{ url_for('predict') }}" method="post">
-      <input type="text" name="longitude" placeholder="longitude" class="input-box" required><br>
-      <input type="text" name="latitude" placeholder="latitude" class="input-box" required><br>
-      <input type="text" name="House_med_age" placeholder="House_med_age" class="input-box" required><br>
-      <input type="text" name="total_rooms" placeholder="total_rooms" class="input-box" required><br>
-      <input type="text" name="total_bedrooms" placeholder="total_bedrooms" class="input-box" required><br>
-      <input type="text" name="population" placeholder="population" class="input-box" required><br>
-      <input type="text" name="households" placeholder="households" class="input-box" required><br>
-      <input type="text" name="median_income" placeholder="median_income" class="input-box" required><br>
+    <form action="{{ url_for('predict') }}" method="post" class="space-y-4">
+      <input type="text" name="longitude" placeholder="Longitude"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="latitude" placeholder="Latitude"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="House_med_age" placeholder="House Median Age"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="total_rooms" placeholder="Total Rooms"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="total_bedrooms" placeholder="Total Bedrooms"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="population" placeholder="Population"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="households" placeholder="Households"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="median_income" placeholder="Median Income"
+        class="input-box w-full p-4 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
 
-      <button type="submit" class="btn-primary">Predict</button>
+      <button type="submit"
+        class="btn-primary w-full p-4 text-white bg-blue-500 hover:bg-blue-700 rounded-lg focus:outline-none focus:shadow-outline">
+        Predict
+      </button>
     </form>
 
-    <div class="result">
+    <div class="mt-8 text-center text-xl font-semibold text-green-700">
       {{ prediction_text }}
     </div>
+
   </div>
+
 </body>
 
 </html>
