@@ -61,7 +61,33 @@
     }
   </style>
 </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>California Housing Price Prediction</title>
+</head>
 
+<body>
+  <div class="container">
+      <h1>California Housing Price Prediction</h1>
+      <form action="/predict" method="POST">
+          <label for="input1">Feature 1:</label>
+          <input type="text" id="input1" name="input1" required><br>
+
+          <label for="input2">Feature 2:</label>
+          <input type="text" id="input2" name="input2" required><br>
+
+          <!-- Add more input fields as needed -->
+
+          <label for="model">Select Model:</label>
+          <select id="model" name="model" required>
+              <option value="linear">Linear Regression</option>
+              <option value="xgboost">XGBoost</option>
+          </select><br>
+
+          <button type="submit">Predict</button>
+      </form>
 <body>
   <div class="container">
     <h1>California House Price Prediction</h1>
